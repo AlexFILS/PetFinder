@@ -26,6 +26,9 @@ class MainCoordinator: CoordinatorType {
     }
     
     private func goToHomeScreen() {
-        
+        let homeViewController = HomeScreenViewController.instantiate(flow: .home)
+        let homeScreenviewModel = HomeScreenViewModel()
+        homeScreenviewModel.coordinator = self
+        navigationController.pushViewController(homeViewController, animated: true)
     }
 }
