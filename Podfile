@@ -9,6 +9,7 @@ target 'PetFinder' do
 
 pod 'RxSwift'
 pod 'RxCocoa'
+pod 'Alamofire'
 
   target 'PetFinderTests' do
     inherit! :search_paths
