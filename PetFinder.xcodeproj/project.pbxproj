@@ -14,6 +14,20 @@
 		8E181945290BEE59006F5A9A /* OAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181943290BEE59006F5A9A /* OAuthResponse.swift */; };
 		8E181948290BF122006F5A9A /* OauthParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181947290BF122006F5A9A /* OauthParameters.swift */; };
 		8E181949290BF122006F5A9A /* OauthParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181947290BF122006F5A9A /* OauthParameters.swift */; };
+		8E18194C290FCAB9006F5A9A /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18194B290FCAB9006F5A9A /* AuthManager.swift */; };
+		8E18194D290FCAB9006F5A9A /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18194B290FCAB9006F5A9A /* AuthManager.swift */; };
+		8E18194F290FCCC9006F5A9A /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18194E290FCCC9006F5A9A /* KeychainHelper.swift */; };
+		8E181950290FCCC9006F5A9A /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18194E290FCCC9006F5A9A /* KeychainHelper.swift */; };
+		8E181952290FCD82006F5A9A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181951290FCD82006F5A9A /* Constants.swift */; };
+		8E181953290FCD82006F5A9A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181951290FCD82006F5A9A /* Constants.swift */; };
+		8E181955290FECAE006F5A9A /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181954290FECAE006F5A9A /* SessionManager.swift */; };
+		8E181956290FECAE006F5A9A /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181954290FECAE006F5A9A /* SessionManager.swift */; };
+		8E181958290FED63006F5A9A /* FetchListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181957290FED63006F5A9A /* FetchListService.swift */; };
+		8E181959290FED63006F5A9A /* FetchListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181957290FED63006F5A9A /* FetchListService.swift */; };
+		8E18195B290FEF8E006F5A9A /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18195A290FEF8E006F5A9A /* CustomError.swift */; };
+		8E18195C290FEF8E006F5A9A /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18195A290FEF8E006F5A9A /* CustomError.swift */; };
+		8E18195E290FF102006F5A9A /* Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18195D290FF102006F5A9A /* Headers.swift */; };
+		8E18195F290FF102006F5A9A /* Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18195D290FF102006F5A9A /* Headers.swift */; };
 		8E5272D8290B01D0004BE146 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5272D7290B01D0004BE146 /* AppDelegate.swift */; };
 		8E5272DA290B01D0004BE146 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5272D9290B01D0004BE146 /* SceneDelegate.swift */; };
 		8E5272DF290B01D0004BE146 /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E5272DD290B01D0004BE146 /* HomeScreen.storyboard */; };
@@ -74,6 +88,13 @@
 		8E181940290BE6AF006F5A9A /* OAuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthData.swift; sourceTree = "<group>"; };
 		8E181943290BEE59006F5A9A /* OAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthResponse.swift; sourceTree = "<group>"; };
 		8E181947290BF122006F5A9A /* OauthParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthParameters.swift; sourceTree = "<group>"; };
+		8E18194B290FCAB9006F5A9A /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		8E18194E290FCCC9006F5A9A /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		8E181951290FCD82006F5A9A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8E181954290FECAE006F5A9A /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		8E181957290FED63006F5A9A /* FetchListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchListService.swift; sourceTree = "<group>"; };
+		8E18195A290FEF8E006F5A9A /* CustomError.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		8E18195D290FF102006F5A9A /* Headers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Headers.swift; sourceTree = "<group>"; };
 		8E5272D4290B01D0004BE146 /* PetFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5272D7290B01D0004BE146 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E5272D9290B01D0004BE146 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +182,16 @@
 			path = OAuth;
 			sourceTree = "<group>";
 		};
+		8E18194A290FCAA2006F5A9A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8E18194B290FCAB9006F5A9A /* AuthManager.swift */,
+				8E181954290FECAE006F5A9A /* SessionManager.swift */,
+				8E181957290FED63006F5A9A /* FetchListService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		8E5272CB290B01D0004BE146 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +217,7 @@
 		8E5272D6290B01D0004BE146 /* PetFinder */ = {
 			isa = PBXGroup;
 			children = (
+				8E18194A290FCAA2006F5A9A /* Services */,
 				8E52730D290B0511004BE146 /* Utils */,
 				8E527308290B02A6004BE146 /* Flows */,
 				8E527307290B01DF004BE146 /* Supporting Files */,
@@ -275,6 +307,10 @@
 				8E52731A290B0796004BE146 /* Storyboarded.swift */,
 				8E52731D290B07BA004BE146 /* UIStoryboard+Extension.swift */,
 				8E527327290B0877004BE146 /* Array+Extension.swift */,
+				8E18194E290FCCC9006F5A9A /* KeychainHelper.swift */,
+				8E181951290FCD82006F5A9A /* Constants.swift */,
+				8E18195A290FEF8E006F5A9A /* CustomError.swift */,
+				8E18195D290FF102006F5A9A /* Headers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -530,18 +566,25 @@
 				8E5272D8290B01D0004BE146 /* AppDelegate.swift in Sources */,
 				8E181948290BF122006F5A9A /* OauthParameters.swift in Sources */,
 				8E527352290B0A20004BE146 /* HomeScreenViewModel.swift in Sources */,
+				8E18195E290FF102006F5A9A /* Headers.swift in Sources */,
+				8E181955290FECAE006F5A9A /* SessionManager.swift in Sources */,
 				8E52730F290B06B5004BE146 /* CoordinatorType.swift in Sources */,
 				8E181941290BE6AF006F5A9A /* OAuthData.swift in Sources */,
+				8E18194C290FCAB9006F5A9A /* AuthManager.swift in Sources */,
 				8E527312290B06E1004BE146 /* MainCoordinator.swift in Sources */,
 				8E527328290B0877004BE146 /* Array+Extension.swift in Sources */,
 				8E181944290BEE59006F5A9A /* OAuthResponse.swift in Sources */,
+				8E18195B290FEF8E006F5A9A /* CustomError.swift in Sources */,
 				8E527325290B080D004BE146 /* BlurView.swift in Sources */,
 				8E5272DA290B01D0004BE146 /* SceneDelegate.swift in Sources */,
 				8E527318290B0785004BE146 /* BaseViewController.swift in Sources */,
 				8E527315290B074E004BE146 /* HomeScreenViewController.swift in Sources */,
 				8E52731B290B0796004BE146 /* Storyboarded.swift in Sources */,
 				8E527322290B07FB004BE146 /* UIView+Extension.swift in Sources */,
+				8E181958290FED63006F5A9A /* FetchListService.swift in Sources */,
 				8E52731E290B07BA004BE146 /* UIStoryboard+Extension.swift in Sources */,
+				8E18194F290FCCC9006F5A9A /* KeychainHelper.swift in Sources */,
+				8E181952290FCD82006F5A9A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +593,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E527353290B0A20004BE146 /* HomeScreenViewModel.swift in Sources */,
+				8E181953290FCD82006F5A9A /* Constants.swift in Sources */,
+				8E181959290FED63006F5A9A /* FetchListService.swift in Sources */,
+				8E181956290FECAE006F5A9A /* SessionManager.swift in Sources */,
 				8E527319290B0785004BE146 /* BaseViewController.swift in Sources */,
 				8E527329290B0877004BE146 /* Array+Extension.swift in Sources */,
 				8E527310290B06B5004BE146 /* CoordinatorType.swift in Sources */,
@@ -560,6 +606,10 @@
 				8E527313290B06E1004BE146 /* MainCoordinator.swift in Sources */,
 				8E527326290B080D004BE146 /* BlurView.swift in Sources */,
 				8E181949290BF122006F5A9A /* OauthParameters.swift in Sources */,
+				8E18195C290FEF8E006F5A9A /* CustomError.swift in Sources */,
+				8E181950290FCCC9006F5A9A /* KeychainHelper.swift in Sources */,
+				8E18194D290FCAB9006F5A9A /* AuthManager.swift in Sources */,
+				8E18195F290FF102006F5A9A /* Headers.swift in Sources */,
 				8E5272EF290B01D1004BE146 /* PetFinderTests.swift in Sources */,
 				8E52731C290B0796004BE146 /* Storyboarded.swift in Sources */,
 				8E52731F290B07BA004BE146 /* UIStoryboard+Extension.swift in Sources */,
