@@ -12,7 +12,7 @@ class OAuthParameters {
     let client_id: String
     let client_secret: String
     
-    public static var shared = OAuthParameters(
+    static let shared = OAuthParameters(
         grant_type: "client_credentials",
         client_id: OAuthData.apiKey.rawValue,
         client_secret: OAuthData.secret.rawValue)

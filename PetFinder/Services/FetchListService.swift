@@ -9,18 +9,24 @@ import Foundation
 import Alamofire
 
 class FetchListService<T: Decodable> {
+    let url: String
+    private let session = SessionManager.shared.currentSession()
     
-    func getList(endpoint url: String, completion: @escaping ([T]?, Error?) -> Void) {
-        let path = URL(string: url)!
+    init(url: String) {
+        self.url = url
+    }
+    
+    func getList(completion: @escaping (T?, Error?) -> Void) {
+        let path = URL(string: self.url)!
         let headers = Headers.shared.standardHeaders()
-        SessionManager.shared.currentSession().request(
+        self.session.request(
             path,
-            method: .post,
+            method: .get,
             headers: headers)
-        .responseDecodable(of: [T].self) { response in
+        .responseDecodable(of: T.self) { response in
             guard response.error != nil else {
                 switch response.error?.responseCode {
-                case 403:
+                case 401, 403:
                     completion(nil, CustomError.denied)
                 default:
                     completion(nil, CustomError.genericError)

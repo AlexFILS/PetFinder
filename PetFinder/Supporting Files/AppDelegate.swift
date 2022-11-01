@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var appCoordinator : MainCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Thread.sleep(forTimeInterval: 3.0) // View my super splash screen
         window = UIWindow(frame: UIScreen.main.bounds)
         let navigationController = UINavigationController.init()
         appCoordinator = MainCoordinator(navController: navigationController)

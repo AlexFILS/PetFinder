@@ -11,3 +11,7 @@ enum KeychainData: String {
     case accessToken = "access-token"
     case oauthAccount = "oauth-account"
 }
+
+enum Endpoints: String {
+    case getAnimals = "https://api.petfinder.com/v2/animals"
+}

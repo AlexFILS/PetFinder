@@ -10,7 +10,7 @@ import Alamofire
 
 final class SessionManager {
     
-    public static var shared = SessionManager()
+    static let shared = SessionManager()
     
     private init() {}
     

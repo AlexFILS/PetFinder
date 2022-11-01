@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 final class Headers {
-    public static var shared = Headers()
+    static let shared = Headers()
     
     private init() {}
     private var accessToken: String {
@@ -20,10 +20,16 @@ final class Headers {
         return String(data: encodedToken, encoding: .utf8) ?? ""
     }
     
+    func fetchBearerHeaders() -> HTTPHeaders {
+        return [
+            "Accept": "application/json"
+        ]
+    }
+    
     func standardHeaders() -> HTTPHeaders {
         return [
             "Accept": "application/json",
-            "Bearer": self.accessToken
+            "Authorization": "Bearer " + self.accessToken
         ]
     }
 }

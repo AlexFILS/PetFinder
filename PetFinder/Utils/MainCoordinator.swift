@@ -27,8 +27,11 @@ class MainCoordinator: CoordinatorType {
     
     private func goToHomeScreen() {
         let homeViewController = HomeScreenViewController.instantiate(flow: .home)
-        let homeScreenviewModel = HomeScreenViewModel()
-        homeScreenviewModel.coordinator = self
+        let services = HomeScreenViewModel.Services(
+            fetchListService: FetchListService<GetList<Animal>>(url: Endpoints.getAnimals.rawValue)
+        )
+        let homeScreenViewModel = HomeScreenViewModel(services: services, coordinator: self)
+        homeViewController.viewModel = homeScreenViewModel
         navigationController.pushViewController(homeViewController, animated: true)
     }
 }

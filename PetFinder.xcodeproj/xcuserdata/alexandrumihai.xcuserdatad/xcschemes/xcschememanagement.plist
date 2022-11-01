@@ -4,10 +4,33 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>PetFinder 1.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>PetFinder.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>7</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>8E5272D3290B01D0004BE146</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8E5272E9290B01D1004BE146</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8E5272F3290B01D1004BE146</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

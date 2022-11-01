@@ -7,16 +7,24 @@
 
 import Foundation
 import UIKit
-import Alamofire
 
 class HomeScreenViewController: BaseViewController {
     
     @IBOutlet weak var petsTableView: UITableView!
-    var coordinator: MainCoordinator?
+    var viewModel: HomeScreenViewModel!
     
     override func viewDidLoad() {
-        self.petsTableView.delegate = self
+        self.initialSetup()
         super.viewDidLoad()
+    }
+    
+    private func initialSetup() {
+        self.petsTableView.delegate = self
+        self.viewModel.getToken() { success in
+            if success {
+                self.viewModel.getAnimals()
+            }
+        }
     }
 }
 
@@ -27,7 +35,6 @@ extension HomeScreenViewController: UITableViewDelegate {
 extension HomeScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         0
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

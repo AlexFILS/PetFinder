@@ -10,12 +10,14 @@ import Alamofire
 
 final class AuthManager {
     
-    func fetchAccessToken(completion: @escaping (Error?) -> Void) {
-        let headers: HTTPHeaders = [
-            "Accept": "application/json"
-        ]
+    static let shared = AuthManager()
+    private let session = SessionManager.shared.currentSession()
+    private init() {}
+    
+    func fetchAccessToken(completion: @escaping (CustomError?) -> Void) {
+        let headers = Headers.shared.fetchBearerHeaders()
         let parameters = OAuthParameters.shared.getOAuthParameters()
-        SessionManager.shared.currentSession().request(
+        self.session.request(
             OAuthData.oauthURL.rawValue,
             method: .post,
             parameters: parameters,
