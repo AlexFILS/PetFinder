@@ -24,7 +24,7 @@ class FetchListService<T: Decodable> {
             method: .get,
             headers: headers)
         .responseDecodable(of: T.self) { response in
-            guard response.error != nil else {
+            guard response.error == nil else {
                 switch response.error?.responseCode {
                 case 401, 403:
                     completion(nil, CustomError.denied)

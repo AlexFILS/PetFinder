@@ -31,8 +31,8 @@
 		8E18195F290FF102006F5A9A /* Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18195D290FF102006F5A9A /* Headers.swift */; };
 		8E181961290FF68D006F5A9A /* PetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181960290FF68D006F5A9A /* PetCell.swift */; };
 		8E181962290FF68D006F5A9A /* PetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181960290FF68D006F5A9A /* PetCell.swift */; };
-		8E181964290FF6A1006F5A9A /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181963290FF6A1006F5A9A /* PetModel.swift */; };
-		8E181965290FF6A1006F5A9A /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181963290FF6A1006F5A9A /* PetModel.swift */; };
+		8E181964290FF6A1006F5A9A /* PetCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181963290FF6A1006F5A9A /* PetCellViewModel.swift */; };
+		8E181965290FF6A1006F5A9A /* PetCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E181963290FF6A1006F5A9A /* PetCellViewModel.swift */; };
 		8E5272D8290B01D0004BE146 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5272D7290B01D0004BE146 /* AppDelegate.swift */; };
 		8E5272DF290B01D0004BE146 /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E5272DD290B01D0004BE146 /* HomeScreen.storyboard */; };
 		8E5272E1290B01D1004BE146 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E5272E0290B01D1004BE146 /* Assets.xcassets */; };
@@ -71,6 +71,8 @@
 		8E692A182911803F00F80CAE /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A162911803F00F80CAE /* Attributes.swift */; };
 		8E692A1A291181DD00F80CAE /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A19291181DD00F80CAE /* Environment.swift */; };
 		8E692A1B291181DD00F80CAE /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A19291181DD00F80CAE /* Environment.swift */; };
+		8E692A1D29119F8000F80CAE /* PetCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E692A1C29119F8000F80CAE /* PetCellXib.xib */; };
+		8E692A1E29119F8000F80CAE /* PetCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E692A1C29119F8000F80CAE /* PetCellXib.xib */; };
 		96F793F74762C5F1022D8668 /* Pods_PetFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B99C9579D022822B3BF7C362 /* Pods_PetFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,7 +107,7 @@
 		8E18195A290FEF8E006F5A9A /* CustomError.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		8E18195D290FF102006F5A9A /* Headers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Headers.swift; sourceTree = "<group>"; };
 		8E181960290FF68D006F5A9A /* PetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCell.swift; sourceTree = "<group>"; };
-		8E181963290FF6A1006F5A9A /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
+		8E181963290FF6A1006F5A9A /* PetCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCellViewModel.swift; sourceTree = "<group>"; };
 		8E5272D4290B01D0004BE146 /* PetFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5272D7290B01D0004BE146 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E5272DE290B01D0004BE146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeScreen.storyboard; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		8E692A1329117B2C00F80CAE /* GetAnimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnimals.swift; sourceTree = "<group>"; };
 		8E692A162911803F00F80CAE /* Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
 		8E692A19291181DD00F80CAE /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		8E692A1C29119F8000F80CAE /* PetCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetCellXib.xib; sourceTree = "<group>"; };
 		90D218F0F4F6E3537DCD540E /* Pods_PetFinderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		992F9A128B5D025470441464 /* Pods-PetFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFinder.debug.xcconfig"; path = "Target Support Files/Pods-PetFinder/Pods-PetFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		B99C9579D022822B3BF7C362 /* Pods_PetFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -309,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				8E181960290FF68D006F5A9A /* PetCell.swift */,
+				8E692A1C29119F8000F80CAE /* PetCellXib.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,7 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				8E527351290B0A20004BE146 /* HomeScreenViewModel.swift */,
-				8E181963290FF6A1006F5A9A /* PetModel.swift */,
+				8E181963290FF6A1006F5A9A /* PetCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -476,6 +480,7 @@
 				8E5272E4290B01D1004BE146 /* LaunchScreen.storyboard in Resources */,
 				8E5272E1290B01D1004BE146 /* Assets.xcassets in Resources */,
 				8E5272DF290B01D0004BE146 /* HomeScreen.storyboard in Resources */,
+				8E692A1D29119F8000F80CAE /* PetCellXib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +488,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E692A1E29119F8000F80CAE /* PetCellXib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,7 +623,7 @@
 				8E18194C290FCAB9006F5A9A /* AuthManager.swift in Sources */,
 				8E527312290B06E1004BE146 /* MainCoordinator.swift in Sources */,
 				8E527328290B0877004BE146 /* Array+Extension.swift in Sources */,
-				8E181964290FF6A1006F5A9A /* PetModel.swift in Sources */,
+				8E181964290FF6A1006F5A9A /* PetCellViewModel.swift in Sources */,
 				8E181944290BEE59006F5A9A /* OAuthResponse.swift in Sources */,
 				8E18195B290FEF8E006F5A9A /* CustomError.swift in Sources */,
 				8E527325290B080D004BE146 /* BlurView.swift in Sources */,
@@ -645,7 +651,7 @@
 				8E181953290FCD82006F5A9A /* Constants.swift in Sources */,
 				8E181959290FED63006F5A9A /* FetchListService.swift in Sources */,
 				8E692A182911803F00F80CAE /* Attributes.swift in Sources */,
-				8E181965290FF6A1006F5A9A /* PetModel.swift in Sources */,
+				8E181965290FF6A1006F5A9A /* PetCellViewModel.swift in Sources */,
 				8E181962290FF68D006F5A9A /* PetCell.swift in Sources */,
 				8E181956290FECAE006F5A9A /* SessionManager.swift in Sources */,
 				8E527319290B0785004BE146 /* BaseViewController.swift in Sources */,

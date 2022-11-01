@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class HomeScreenViewModel {
     
@@ -15,6 +17,7 @@ class HomeScreenViewModel {
     
     let services: Services?
     weak var coordinator : MainCoordinator?
+    var animals = PublishSubject<[Animal]>()
     
     init(services: Services, coordinator: MainCoordinator) {
         self.services = services
@@ -23,6 +26,7 @@ class HomeScreenViewModel {
     
     func getToken(completion: @escaping (Bool) -> Void) {
         AuthManager.shared.fetchAccessToken { error in
+            // TODO: Adapt
             if error == nil {
               completion(true)
             } else {
@@ -32,9 +36,11 @@ class HomeScreenViewModel {
     }
     
     func getAnimals() {
-        self.services?.fetchListService.getList { response, error in
-            print(response)
-            print(error)
+        self.services?.fetchListService.getList { [weak self] response, error in
+            if let animals = response?.animals {
+                self?.animals.onNext(animals)
+                self?.animals.onCompleted()
+            }
         }
     }
 }
