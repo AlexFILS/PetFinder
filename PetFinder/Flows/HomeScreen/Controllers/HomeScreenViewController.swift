@@ -41,7 +41,7 @@ class HomeScreenViewController: BaseViewController {
         )
         {
             (row, item, cell) in
-            // TODO: extract strings and move what's possible to viewmodel
+            // TODO: extract strings, improve image link fetch and move what's possible to viewmodel
             let imagePathvalue = item.photos.first?["medium"] ?? "https://image.shutterstock.com/image-vector/caution-exclamation-mark-white-red-600w-1055269061.jpg"
             let viewModel = PetCellViewModel(
                 fromAnimal: item,
