@@ -16,7 +16,7 @@ class FetchListService<T: Decodable> {
         self.url = url
     }
     
-    func getList(completion: @escaping (T?, Error?) -> Void) {
+    func getList(completion: @escaping (T?, CustomError?) -> Void) {
         let path = URL(string: self.url)!
         let headers = Headers.shared.standardHeaders()
         self.session.request(

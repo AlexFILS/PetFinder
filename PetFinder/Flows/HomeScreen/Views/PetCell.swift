@@ -20,6 +20,7 @@ class PetCell: UITableViewCell {
     private let disposeBag = DisposeBag()
     
     func configure(with viewModel: PetCellViewModel) {
+        self.showBlurLoader()
         self.viewModel = viewModel
         self.cellAvatar.image = UIImage(named: "plus")
         self.petTypeLabel.text = viewModel.petType
@@ -38,6 +39,7 @@ class PetCell: UITableViewCell {
             DispatchQueue.main.async {
                 self?.cellAvatar.image = image
                 self?.setNeedsLayout()
+                self?.removeBlurLoader()
             }
         }).disposed(by: self.disposeBag)
     }

@@ -21,17 +21,32 @@ final class AuthManager {
             OAuthData.oauthURL.rawValue,
             method: .post,
             parameters: parameters,
-            headers: headers)
+            headers: headers
+        )
         .responseDecodable(of: OAuthResponse.self) { response in
             guard let token = response.value,
-            let data = token.access_token.data(using: .utf8) else {
+                  let data = token.access_token.data(using: .utf8) else {
                 completion(CustomError.fetchError)
                 return
             }
-            KeychainHelper.shared.save(data,
-                                         service: KeychainData.accessToken.rawValue,
-                                         account: KeychainData.oauthAccount.rawValue)
+            KeychainHelper.shared.save(
+                data,
+                service: KeychainData.accessToken.rawValue,
+                account: KeychainData.oauthAccount.rawValue
+            )
             completion(nil)
+        }
+    }
+    
+    func getStoredAccessToken() -> String? {
+        if let bearer = KeychainHelper.shared.read(
+            service: KeychainData.accessToken.rawValue,
+            account: KeychainData.oauthAccount.rawValue
+        )
+        {
+            return String(data: bearer, encoding: .utf8)
+        } else {
+            return nil
         }
     }
 }

@@ -13,7 +13,7 @@ import RxCocoa
 class HomeScreenViewController: BaseViewController {
     // TODO: Extract inlines, move relevant logic to vm
     @IBOutlet weak var petsTableView: UITableView!
-    var viewModel: HomeScreenViewModel!
+    var viewModel: HomeScreenViewModelType!
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
@@ -24,17 +24,16 @@ class HomeScreenViewController: BaseViewController {
     private func initialSetup() {
         self.bindTableView()
         self.petsTableView.rx.setDelegate(self).disposed(by: bag)
-        self.viewModel.getToken() { success in
-            if success {
-                self.viewModel.getAnimals()
-            }
+        self.viewModel.initializeServices() { error in
+            // TODO handle errors via alerts
+            print(error?.description)
         }
     }
     
     private func bindTableView() {
         self.petsTableView.register(UINib(nibName: "PetCellXib", bundle: nil), forCellReuseIdentifier: "PetCell")
         
-        self.viewModel.animals.bind(
+        self.viewModel.getListItems().bind(
             to: self.petsTableView.rx.items(
                 cellIdentifier: "PetCell", cellType: PetCell.self
             )
@@ -55,10 +54,9 @@ class HomeScreenViewController: BaseViewController {
         
         self.petsTableView.rx.modelSelected(Animal.self)
             .subscribe(onNext: { item in
-                print("SelectedItem: \(item.name)")
+                print("SelectedItem: \(item.breeds.primary)")
             })
             .disposed(by: bag)
-        viewModel.getAnimals()
     }
 }
 
