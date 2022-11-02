@@ -14,4 +14,16 @@ enum KeychainData: String {
 
 enum Endpoints: String {
     case getAnimals = "https://api.petfinder.com/v2/animals"
+    case getAnimal = "https://api.petfinder.com/v2/animals/"
+}
+
+enum CommonStrings: String {
+    case notSpecified = "Not specified"
+}
+
+enum DetailScreenSectionTitles: String {
+    case mainTraits = "Main Traits"
+    case apperance = "Apperance"
+    case address = "Address"
+    case contact = "Contact"
 }

@@ -10,7 +10,7 @@ import UIKit
 extension UIStoryboard {
     enum Storyboard: String {
         case home = "HomeScreen"
-        case detail = "DetailFlow"
+        case detail = "DetailScreen"
         
         var flowName: String {
             return rawValue

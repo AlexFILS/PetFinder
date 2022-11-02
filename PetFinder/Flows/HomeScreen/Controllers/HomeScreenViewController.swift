@@ -53,7 +53,8 @@ class HomeScreenViewController: BaseViewController {
         .disposed(by: bag)
         
         self.petsTableView.rx.modelSelected(Animal.self)
-            .subscribe(onNext: { item in
+            .subscribe(onNext: { [weak self] item in
+                self?.viewModel.itemSelected(item)
                 print("SelectedItem: \(item.breeds.primary)")
             })
             .disposed(by: bag)

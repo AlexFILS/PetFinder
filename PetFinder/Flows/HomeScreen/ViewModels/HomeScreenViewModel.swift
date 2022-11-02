@@ -13,6 +13,7 @@ protocol HomeScreenViewModelType {
     var coordinator: MainCoordinatorType? { get set }
     func initializeServices(completion: @escaping (CustomError?) -> Void)
     func getListItems() -> PublishSubject<[Animal]>
+    func itemSelected(_ animal: Animal)
 }
 
 class HomeScreenViewModel: HomeScreenViewModelType {
@@ -53,6 +54,10 @@ class HomeScreenViewModel: HomeScreenViewModelType {
                 completion(error)
             }
         }
+    }
+    
+    func itemSelected(_ animal: Animal) {
+        self.coordinator?.animalSelected(animal)
     }
     
     private func getToken(completion: @escaping (CustomError?) -> Void) {

@@ -40,6 +40,7 @@ class MainCoordinator: MainCoordinatorType {
     }
     
     func animalSelected(_ animal: Animal) {
-        // not implemented
+        let detailController = DetailScreenViewController.instantiate(flow: .detail)
+        navigationController.pushViewController(detailController, animated: true)
     }
 }
