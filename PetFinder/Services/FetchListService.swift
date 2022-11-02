@@ -27,6 +27,7 @@ class FetchListService<T: Decodable> {
             guard response.error == nil else {
                 switch response.error?.responseCode {
                 case 401, 403:
+                    AuthManager.shared.fetchAccessToken { _ in }
                     completion(nil, CustomError.denied)
                 default:
                     completion(nil, CustomError.genericError)

@@ -11,6 +11,7 @@ target 'PetFinder' do
 pod 'Alamofire'
 pod 'RxSwift'
 pod 'RxCocoa'
+pod 'AlamofireImage', '~> 4.1'
 
   target 'PetFinderTests' do
     inherit! :search_paths

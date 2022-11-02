@@ -73,6 +73,7 @@
 		8E692A1B291181DD00F80CAE /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A19291181DD00F80CAE /* Environment.swift */; };
 		8E692A1D29119F8000F80CAE /* PetCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E692A1C29119F8000F80CAE /* PetCellXib.xib */; };
 		8E692A1E29119F8000F80CAE /* PetCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E692A1C29119F8000F80CAE /* PetCellXib.xib */; };
+		8E692A202911A41300F80CAE /* ImageDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A1F2911A41300F80CAE /* ImageDownloadService.swift */; };
 		96F793F74762C5F1022D8668 /* Pods_PetFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B99C9579D022822B3BF7C362 /* Pods_PetFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +139,7 @@
 		8E692A162911803F00F80CAE /* Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
 		8E692A19291181DD00F80CAE /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		8E692A1C29119F8000F80CAE /* PetCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetCellXib.xib; sourceTree = "<group>"; };
+		8E692A1F2911A41300F80CAE /* ImageDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadService.swift; sourceTree = "<group>"; };
 		90D218F0F4F6E3537DCD540E /* Pods_PetFinderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		992F9A128B5D025470441464 /* Pods-PetFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFinder.debug.xcconfig"; path = "Target Support Files/Pods-PetFinder/Pods-PetFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		B99C9579D022822B3BF7C362 /* Pods_PetFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +217,7 @@
 				8E181954290FECAE006F5A9A /* SessionManager.swift */,
 				8E181957290FED63006F5A9A /* FetchListService.swift */,
 				8E692A1329117B2C00F80CAE /* GetAnimals.swift */,
+				8E692A1F2911A41300F80CAE /* ImageDownloadService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E5272D8290B01D0004BE146 /* AppDelegate.swift in Sources */,
+				8E692A202911A41300F80CAE /* ImageDownloadService.swift in Sources */,
 				8E181948290BF122006F5A9A /* OauthParameters.swift in Sources */,
 				8E692A0E2911719800F80CAE /* Address.swift in Sources */,
 				8E692A0C2911716100F80CAE /* Contact.swift in Sources */,

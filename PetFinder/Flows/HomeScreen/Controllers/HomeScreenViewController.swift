@@ -10,8 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class HomeScreenViewController: BaseViewController, UITableViewDelegate {
-    
+class HomeScreenViewController: BaseViewController {
+    // TODO: Extract inlines, move relevant logic to vm
     @IBOutlet weak var petsTableView: UITableView!
     var viewModel: HomeScreenViewModel!
     private let bag = DisposeBag()
@@ -41,8 +41,15 @@ class HomeScreenViewController: BaseViewController, UITableViewDelegate {
         )
         {
             (row, item, cell) in
-            let model = PetCellViewModel(fromAnimal: item)
-            cell.configure(withModel: model)
+            // TODO: extract strings and move what's possible to viewmodel
+            let imagePathvalue = item.photos.first?["medium"] ?? "https://image.shutterstock.com/image-vector/caution-exclamation-mark-white-red-600w-1055269061.jpg"
+            let viewModel = PetCellViewModel(
+                fromAnimal: item,
+                services: PetCellViewModel.Services(
+                    imageDownloadService: ImageDownloadService(path: imagePathvalue)
+                )
+            )
+            cell.configure(with: viewModel)
         }
         .disposed(by: bag)
         
@@ -52,5 +59,11 @@ class HomeScreenViewController: BaseViewController, UITableViewDelegate {
             })
             .disposed(by: bag)
         viewModel.getAnimals()
+    }
+}
+
+extension HomeScreenViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
     }
 }
