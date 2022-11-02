@@ -8,7 +8,11 @@
 import Foundation
 import UIKit
 
-class MainCoordinator: CoordinatorType {
+protocol MainCoordinatorType: CoordinatorType {
+    func animalSelected(_ animal: Animal)
+}
+class MainCoordinator: MainCoordinatorType {
+    
     var navigationController: UINavigationController
     
     // MARK: - Init
@@ -33,5 +37,9 @@ class MainCoordinator: CoordinatorType {
         let homeScreenViewModel = HomeScreenViewModel(services: services, coordinator: self)
         homeViewController.viewModel = homeScreenViewModel
         navigationController.pushViewController(homeViewController, animated: true)
+    }
+    
+    func animalSelected(_ animal: Animal) {
+        // not implemented
     }
 }

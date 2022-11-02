@@ -16,7 +16,7 @@ class HomeScreenViewModel {
     }
     
     let services: Services?
-    weak var coordinator : MainCoordinator?
+    weak var coordinator : MainCoordinatorType?
     var animals = PublishSubject<[Animal]>()
     
     init(services: Services, coordinator: MainCoordinator) {
