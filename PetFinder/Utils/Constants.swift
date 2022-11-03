@@ -79,3 +79,7 @@ enum AlertConstants: String {
     case buttonOk = "OK"
     case buttonRetry = "Retry"
 }
+
+enum Parameters: String {
+    case page
+}

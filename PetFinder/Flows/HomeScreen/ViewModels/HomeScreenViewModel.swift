@@ -12,9 +12,10 @@ import RxCocoa
 protocol HomeScreenViewModelType {
     var coordinator: MainCoordinatorType? { get set }
     func initializeServices(completion: @escaping (CustomError?) -> Void)
-    func getListItems() -> PublishSubject<[Animal]>
+    func getListItems() -> BehaviorSubject<[Animal]>
     func itemSelected(_ animal: Animal)
     func refreshList()
+    func getItemCount() -> Int
 }
 
 class HomeScreenViewModel: HomeScreenViewModelType {
@@ -25,14 +26,17 @@ class HomeScreenViewModel: HomeScreenViewModelType {
     
     private let services: Services?
     weak var coordinator : MainCoordinatorType?
-    private var animals = PublishSubject<[Animal]>()
+    private var animals = BehaviorSubject<[Animal]>(value: [])
+    private var animalsPlain = [Animal]()
+    private var currentPage = 1
+    private var fetchedItemsCount = 0
     
     init(services: Services, coordinator: MainCoordinator) {
         self.services = services
         self.coordinator = coordinator
     }
     
-    func getListItems() -> RxSwift.PublishSubject<[Animal]> {
+    func getListItems() -> BehaviorSubject<[Animal]> {
         return self.animals
     }
     
@@ -65,6 +69,9 @@ class HomeScreenViewModel: HomeScreenViewModelType {
         self.getAnimals() { _ in }
     }
     
+    func getItemCount() -> Int {
+        return self.fetchedItemsCount
+    }
     private func getToken(completion: @escaping (CustomError?) -> Void) {
         AuthManager.shared.fetchAccessToken { error in
             completion(error)
@@ -72,14 +79,20 @@ class HomeScreenViewModel: HomeScreenViewModelType {
     }
     
     private func getAnimals(completion: @escaping (CustomError?) -> Void) {
-        self.services?.fetchListService.getList { [weak self] response, error in
+        let parameters = [Parameters.page.rawValue : "\(self.currentPage)"]
+        self.services?.fetchListService.getList(parameters: parameters) { [weak self] response, error in
+            guard let self = self else {
+                return
+            }
             guard error == nil else {
                 completion(error)
                 return
             }
             if let animals = response?.animals {
-                self?.animals.onNext(animals)
-                self?.animals.onCompleted()
+                self.currentPage += 1
+                self.fetchedItemsCount += animals.count
+                self.animalsPlain.append(contentsOf: animals)
+                self.animals.onNext(self.animalsPlain)
                 completion(nil)
             }
         }

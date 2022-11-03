@@ -46,9 +46,11 @@ class HomeScreenViewController: BaseViewController {
                 cellIdentifier: HomeScreenCellIdentifier.petCell.rawValue, cellType: PetCellView.self
             )
         )
-        {
-            (row, item, cell) in
-            // TODO: extract strings, improve image link fetch and move what's possible to viewmodel
+        { [weak self] row, item, cell in
+            // Dumb pre-fetch logic. Sorry but had no time to study this rxswift concept
+            if row == (self?.viewModel.getItemCount() ?? 0) - 2 {
+                self?.prefetchAnimals()
+            }
             let imagePathvalue = item.photos.first?["medium"] ?? Endpoints.photoDownloadError.rawValue
             let viewModel = PetCellViewModel(
                 fromAnimal: item,
@@ -67,6 +69,13 @@ class HomeScreenViewController: BaseViewController {
                 }
             )
             .disposed(by: bag)
+        
+        self.viewModel.getListItems().bind { [weak self] animals in
+            if animals.count > 0 {
+                self?.view.removeBlurLoader()
+            }
+        }
+        .disposed(by: self.bag)
     }
     
     private func showAlert(forError error: CustomError) {
@@ -87,6 +96,7 @@ class HomeScreenViewController: BaseViewController {
         let message = error.description
         let refreshAction: (UIAlertAction) -> Void = { _ in
             AuthManager.shared.fetchAccessToken { [weak self] error in
+                self?.view.showBlurLoader()
                 self?.viewModel.refreshList()
             }
         }
@@ -97,6 +107,11 @@ class HomeScreenViewController: BaseViewController {
             .onSuccessAction(title: AlertConstants.buttonOk.rawValue, { _ in })
             .onCustomAction(title: AlertConstants.buttonRetry.rawValue, refreshAction)
             .show()
+    }
+    
+    private func prefetchAnimals() {
+        self.view.showBlurLoader()
+        self.viewModel.refreshList()
     }
 }
 

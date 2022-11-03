@@ -17,12 +17,13 @@ class FetchListService<T: Decodable> {
         self.url = url
     }
     
-    func getList(completion: @escaping (T?, CustomError?) -> Void) {
+    func getList(parameters: [String: String]? = nil, completion: @escaping (T?, CustomError?) -> Void) {
         let path = URL(string: self.url)!
         let headers = Headers.shared.standardHeaders()
         self.session.request(
             path,
             method: .get,
+            parameters: parameters,
             headers: headers)
         .responseDecodable(of: T.self) { response in
             guard let responseData = response.value else {
