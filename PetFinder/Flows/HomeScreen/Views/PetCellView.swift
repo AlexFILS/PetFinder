@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class PetCell: UITableViewCell {
+class PetCellView: UITableViewCell {
     @IBOutlet weak var cellAvatar: UIImageView!
     @IBOutlet weak var petTypeLabel: UILabel!
     @IBOutlet weak var petBreedLabel: UILabel!

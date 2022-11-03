@@ -15,6 +15,7 @@ enum KeychainData: String {
 enum Endpoints: String {
     case getAnimals = "https://api.petfinder.com/v2/animals"
     case getAnimal = "https://api.petfinder.com/v2/animals/"
+    case photoDownloadError = "https://image.shutterstock.com/image-vector/caution-exclamation-mark-white-red-600w-1055269061.jpg"
 }
 
 enum CommonStrings: String {
@@ -54,6 +55,9 @@ enum DetailScreenCellIdentifiers: String {
     case addressCell = "AddressCell"
 }
 
+enum HomeScreenCellIdentifier: String {
+    case petCell = "PetCell"
+}
 enum AddressCellTitles: String {
     case address1LabelTitle = "Address: %@"
     case address2LabelTitle = "Address 2: %@"
@@ -66,4 +70,10 @@ enum AddressCellTitles: String {
 enum ContactCellTitles: String {
     case email = "E-mail: %@"
     case phone = "Phone: %@"
+}
+
+enum AlertConstants: String {
+    case genericTitle = "Attention!"
+    case buttonOk = "OK"
+    case buttonRetry = "Retry"
 }

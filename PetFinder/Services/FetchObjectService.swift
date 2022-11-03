@@ -29,18 +29,18 @@ class FetchObjectService<T: Decodable> {
             headers: headers
          )
         .responseDecodable(of: T.self) { response in
-            guard response.error == nil else {
-                switch response.error?.responseCode {
-                case 401, 403:
-                    AuthManager.shared.fetchAccessToken { _ in }
-                    completion(nil, CustomError.denied)
-                default:
-                    completion(nil, CustomError.genericError)
-                }
-                return
-            }
             guard let responseData = response.value else {
-                completion(nil, CustomError.parseError)
+                if let baseResponse = response.value as? BaseResponse {
+                    switch baseResponse.status {
+                    case 401, 403:
+                        AuthManager.shared.fetchAccessToken { _ in }
+                        completion(nil, CustomError.denied)
+                    default:
+                        AuthManager.shared.fetchAccessToken { _ in }
+                        completion(nil, CustomError.genericError)
+                    }
+                }
+                completion(nil, CustomError.genericError)
                 return
             }
             completion(responseData, nil)

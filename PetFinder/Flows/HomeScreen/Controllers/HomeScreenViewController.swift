@@ -22,26 +22,34 @@ class HomeScreenViewController: BaseViewController {
     }
     
     private func initialSetup() {
+        self.view.showBlurLoader()
         self.bindTableView()
         self.petsTableView.rx.setDelegate(self).disposed(by: bag)
-        self.viewModel.initializeServices() { error in
-            // TODO handle errors via alerts
-            print(error?.description)
+        self.viewModel.initializeServices() { [unowned self] error in
+            self.view.removeBlurLoader()
+            if let error = error {
+                self.showAlert(forError: error)
+            }
         }
     }
     
     private func bindTableView() {
-        self.petsTableView.register(UINib(nibName: "PetCellXib", bundle: nil), forCellReuseIdentifier: "PetCell")
+        self.petsTableView.register(
+            UINib(
+                nibName: HomeScreenCellIdentifier.petCell.rawValue,
+                bundle: nil
+            ), forCellReuseIdentifier: HomeScreenCellIdentifier.petCell.rawValue
+        )
         
         self.viewModel.getListItems().bind(
             to: self.petsTableView.rx.items(
-                cellIdentifier: "PetCell", cellType: PetCell.self
+                cellIdentifier: HomeScreenCellIdentifier.petCell.rawValue, cellType: PetCellView.self
             )
         )
         {
             (row, item, cell) in
             // TODO: extract strings, improve image link fetch and move what's possible to viewmodel
-            let imagePathvalue = item.photos.first?["medium"] ?? "https://image.shutterstock.com/image-vector/caution-exclamation-mark-white-red-600w-1055269061.jpg"
+            let imagePathvalue = item.photos.first?["medium"] ?? Endpoints.photoDownloadError.rawValue
             let viewModel = PetCellViewModel(
                 fromAnimal: item,
                 services: PetCellViewModel.Services(
@@ -53,11 +61,42 @@ class HomeScreenViewController: BaseViewController {
         .disposed(by: bag)
         
         self.petsTableView.rx.modelSelected(Animal.self)
-            .subscribe(onNext: { [weak self] item in
-                self?.viewModel.itemSelected(item)
-                print("SelectedItem: \(item.breeds.primary)")
-            })
+            .subscribe(
+                onNext: { [weak self] item in
+                    self?.viewModel.itemSelected(item)
+                }
+            )
             .disposed(by: bag)
+    }
+    
+    private func showAlert(forError error: CustomError) {
+        if error == .denied {
+            self.showAlertWithRefresh(forError: error)
+        } else {
+            let message = error.description
+            AlertBuilder(viewController: self)
+                .withTitle(AlertConstants.genericTitle.rawValue)
+                .andMessage(message)
+                .preferredStyle(.alert)
+                .onSuccessAction(title: AlertConstants.buttonOk.rawValue, { _ in })
+                .show()
+        }
+    }
+    
+    private func showAlertWithRefresh(forError error: CustomError) {
+        let message = error.description
+        let refreshAction: (UIAlertAction) -> Void = { _ in
+            AuthManager.shared.fetchAccessToken { [weak self] error in
+                self?.viewModel.refreshList()
+            }
+        }
+        AlertBuilder(viewController: self)
+            .withTitle(AlertConstants.genericTitle.rawValue)
+            .andMessage(message)
+            .preferredStyle(.alert)
+            .onSuccessAction(title: AlertConstants.buttonOk.rawValue, { _ in })
+            .onCustomAction(title: AlertConstants.buttonRetry.rawValue, refreshAction)
+            .show()
     }
 }
 

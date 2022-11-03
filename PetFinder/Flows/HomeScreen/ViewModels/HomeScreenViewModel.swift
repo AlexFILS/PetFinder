@@ -14,6 +14,7 @@ protocol HomeScreenViewModelType {
     func initializeServices(completion: @escaping (CustomError?) -> Void)
     func getListItems() -> PublishSubject<[Animal]>
     func itemSelected(_ animal: Animal)
+    func refreshList()
 }
 
 class HomeScreenViewModel: HomeScreenViewModelType {
@@ -58,6 +59,10 @@ class HomeScreenViewModel: HomeScreenViewModelType {
     
     func itemSelected(_ animal: Animal) {
         self.coordinator?.animalSelected(animal)
+    }
+    
+    func refreshList() {
+        self.getAnimals() { _ in }
     }
     
     private func getToken(completion: @escaping (CustomError?) -> Void) {
