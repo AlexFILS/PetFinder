@@ -27,3 +27,43 @@ enum DetailScreenSectionTitles: String {
     case address = "Address"
     case contact = "Contact"
 }
+
+enum MainTraitsLabelTitles: String {
+    case nameLabelText = "Name: %@"
+    case ageLabelText = "Age: %@"
+    case speciesLabelText = "Species: %@"
+    case genderLabelText = "Gender: %@"
+    case breedLabelText = "Breed: %@"
+    case subbreedLabelText = "Subbreed: %@"
+    case mixedLabelText = "Mixed: %@"
+    case unknownLabelText = "Unknown: %@"
+}
+
+enum MainTraitsCellTitles: String {
+    case size = "Size: %@"
+    case coat = "Coat: %@"
+    case primaryColor = "Primary color: %@"
+    case secondaryColor = "Secondary color: %@"
+    case tertiaryColor = "Tertiary color: %@"
+}
+enum DetailScreenCellIdentifiers: String {
+    case appearanceCell = "AppearanceCell"
+    case mainTraitsCell = "MainTraitsCell"
+    case photosCell = "PhotosCell"
+    case contactCell = "ContactCell"
+    case addressCell = "AddressCell"
+}
+
+enum AddressCellTitles: String {
+    case address1LabelTitle = "Address: %@"
+    case address2LabelTitle = "Address 2: %@"
+    case cityLabelTitle = "City: %@"
+    case stateLabelTitle = "State: %@"
+    case postcodeLabelTitle = "Post code: %@"
+    case countryLabelTitle = "Country: %@"
+}
+
+enum ContactCellTitles: String {
+    case email = "E-mail: %@"
+    case phone = "Phone: %@"
+}

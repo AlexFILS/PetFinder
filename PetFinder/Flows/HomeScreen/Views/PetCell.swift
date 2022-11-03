@@ -36,7 +36,7 @@ class PetCell: UITableViewCell {
             return
         }
         viewModel.avatarImage.subscribe(onNext: { [weak self] image in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 self?.cellAvatar.image = image
                 self?.setNeedsLayout()
                 self?.removeBlurLoader()

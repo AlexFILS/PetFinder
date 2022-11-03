@@ -40,6 +40,7 @@ class DetailScreenViewModel: DetailScreenViewModelType, TableViewSupportedViewMo
     init(animal: Animal, coordinator: MainCoordinatorType) {
         self.animal = animal
         self.coordinator = coordinator
+        self.generateSections()
     }
     
     func modelForIndex(_ indexPath: IndexPath) -> CellType? {
@@ -62,8 +63,9 @@ class DetailScreenViewModel: DetailScreenViewModelType, TableViewSupportedViewMo
     private func generateSections() {
         var sections = [Section]()
         sections.append(self.generateMainTraitsSection())
-        sections.append(self.generateMainTraitsSection())
+        sections.append(self.generateApperanceSection())
         sections.append(self.generateAddressSection())
+        sections.append(self.generateContactSection())
         self.sections = sections
     }
     
@@ -88,7 +90,7 @@ class DetailScreenViewModel: DetailScreenViewModelType, TableViewSupportedViewMo
         return Section(sectionTtitle: DetailScreenSectionTitles.address.rawValue, items: cells)
     }
     
-    private func generateContactSectiion() -> Section {
+    private func generateContactSection() -> Section {
         var cells = [CellType]()
         let contact = ContactCellModel(from: self.animal.contact)
         cells.append(.contactCell(model: contact))

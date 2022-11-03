@@ -6,7 +6,8 @@
 //
 
 struct AddressCellModel {
-    let address1: String?
+    let address1: String
+    let address2: String
     let city: String
     let state: String
     let postcode: String
@@ -14,6 +15,7 @@ struct AddressCellModel {
     
     init(from viewModel: Address) {
         self.address1 = viewModel.address1 ?? CommonStrings.notSpecified.rawValue
+        self.address2 = viewModel.address2 ?? CommonStrings.notSpecified.rawValue
         self.city = viewModel.city
         self.state = viewModel.state
         self.postcode = viewModel.postcode

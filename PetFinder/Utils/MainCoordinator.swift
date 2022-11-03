@@ -41,6 +41,8 @@ class MainCoordinator: MainCoordinatorType {
     
     func animalSelected(_ animal: Animal) {
         let detailController = DetailScreenViewController.instantiate(flow: .detail)
+        let detailViewModel = DetailScreenViewModel(animal: animal, coordinator: self)
+        detailController.viewModel = detailViewModel
         navigationController.pushViewController(detailController, animated: true)
     }
 }
