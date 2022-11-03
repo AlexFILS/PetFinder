@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class DetailScreenViewController: BaseViewController {
+    
     typealias DetailViewModelType = DetailScreenViewModelType & TableViewSupportedViewModelType
     var viewModel: DetailViewModelType!
     @IBOutlet weak var detailsTableView: UITableView!

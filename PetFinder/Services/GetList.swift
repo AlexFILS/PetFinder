@@ -12,31 +12,31 @@ struct GetList<T: Decodable>: Decodable {
     let pagination: Pagination?
     
 }
-    struct Pagination: Decodable {
-        let countPerPage: Int
-        let totalCount: Int
-        let currentPage: Int
-        let totalPages: Int
-        let links: Links?
-        
-        enum CodingKeys: String, CodingKey {
-            case animals
-            case countPerPage = "count_per_page"
-            case totalCount = "total_count"
-            case currentPage = "current_page"
-            case totalPages = "total_pages"
-            case links
-        }
-        
-        init(from decoder: Decoder) throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            self.countPerPage = try container.decode(Int.self, forKey: .countPerPage)
-            self.totalCount = try container.decode(Int.self, forKey: .totalCount)
-            self.currentPage = try container.decode(Int.self, forKey: .currentPage)
-            self.totalPages = try container.decode(Int.self, forKey: .totalPages)
-            self.links = try container.decodeIfPresent(Links.self, forKey: .links)
-        }
+struct Pagination: Decodable {
+    let countPerPage: Int
+    let totalCount: Int
+    let currentPage: Int
+    let totalPages: Int
+    let links: Links?
+    
+    enum CodingKeys: String, CodingKey {
+        case animals
+        case countPerPage = "count_per_page"
+        case totalCount = "total_count"
+        case currentPage = "current_page"
+        case totalPages = "total_pages"
+        case links
     }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.countPerPage = try container.decode(Int.self, forKey: .countPerPage)
+        self.totalCount = try container.decode(Int.self, forKey: .totalCount)
+        self.currentPage = try container.decode(Int.self, forKey: .currentPage)
+        self.totalPages = try container.decode(Int.self, forKey: .totalPages)
+        self.links = try container.decodeIfPresent(Links.self, forKey: .links)
+    }
+}
 
 
 struct Links: Decodable {

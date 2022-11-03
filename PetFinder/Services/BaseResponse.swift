@@ -29,19 +29,3 @@ struct BaseResponse: Decodable {
     }
     
 }
-
-/*
- {
-     "type": "https://www.petfinder.com/developers/v2/docs/errors/ERR-00002/",
-     "status": 400,
-     "title": "Invalid Request",
-     "detail": "The request contains invalid parameters.",
-     "invalid-params": [
-         {
-             "in": "query",
-             "path": "type",
-             "message": "test is not a valid animal type."
-         }
-     ]
- }
- */

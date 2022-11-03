@@ -28,7 +28,7 @@ class PhotosCellViewModel {
     init(services: Services) {
         self.services = services
     }
-
+    
     func getPhotos() -> PublishSubject<[UIImage]> {
         return self.downloadedImages
     }

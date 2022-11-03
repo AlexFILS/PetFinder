@@ -27,7 +27,7 @@ class FetchObjectService<T: Decodable> {
             method: .get,
             parameters: self.parameters,
             headers: headers
-         )
+        )
         .responseDecodable(of: T.self) { response in
             guard let responseData = response.value else {
                 if let baseResponse = response.value as? BaseResponse {

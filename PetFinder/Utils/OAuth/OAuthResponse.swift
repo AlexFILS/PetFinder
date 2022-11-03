@@ -8,10 +8,10 @@
 import Foundation
 
 struct OAuthResponse: Decodable {
-     let token_type: String
-     let expires_in: Int
-     let access_token: String
-
+    let token_type: String
+    let expires_in: Int
+    let access_token: String
+    
     enum CodingKeys: String, CodingKey {
         case tokenType = "token_type"
         case expiresIn = "expires_in"
