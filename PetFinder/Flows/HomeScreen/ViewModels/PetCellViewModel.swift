@@ -12,7 +12,7 @@ import RxSwift
 class PetCellViewModel {
     
     struct Services {
-        let imageDownloadService: ImageDownloadService
+        let imageDownloadService: ImageDownloadServiceType
     }
     
     let petType: String

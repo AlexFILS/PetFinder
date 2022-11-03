@@ -94,6 +94,8 @@
 		8E692A4C291417DF00F80CAE /* BaseAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A4B291417DF00F80CAE /* BaseAlert.swift */; };
 		8E692A4E291417F500F80CAE /* AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A4D291417F500F80CAE /* AlertAction.swift */; };
 		8E692A50291417FF00F80CAE /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A4F291417FF00F80CAE /* AlertBuilder.swift */; };
+		8E692A522914246800F80CAE /* PhotosCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A512914246800F80CAE /* PhotosCellViewModel.swift */; };
+		8E692A542914267E00F80CAE /* MultipleImageDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A532914267D00F80CAE /* MultipleImageDownloadService.swift */; };
 		96F793F74762C5F1022D8668 /* Pods_PetFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B99C9579D022822B3BF7C362 /* Pods_PetFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +182,8 @@
 		8E692A4B291417DF00F80CAE /* BaseAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlert.swift; sourceTree = "<group>"; };
 		8E692A4D291417F500F80CAE /* AlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAction.swift; sourceTree = "<group>"; };
 		8E692A4F291417FF00F80CAE /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
+		8E692A512914246800F80CAE /* PhotosCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCellViewModel.swift; sourceTree = "<group>"; };
+		8E692A532914267D00F80CAE /* MultipleImageDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImageDownloadService.swift; sourceTree = "<group>"; };
 		90D218F0F4F6E3537DCD540E /* Pods_PetFinderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		992F9A128B5D025470441464 /* Pods-PetFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFinder.debug.xcconfig"; path = "Target Support Files/Pods-PetFinder/Pods-PetFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		B99C9579D022822B3BF7C362 /* Pods_PetFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +263,7 @@
 				8E692A2129129A5500F80CAE /* FetchObjectService.swift */,
 				8E692A1329117B2C00F80CAE /* GetList.swift */,
 				8E692A1F2911A41300F80CAE /* ImageDownloadService.swift */,
+				8E692A532914267D00F80CAE /* MultipleImageDownloadService.swift */,
 				8E692A48291414EE00F80CAE /* BaseResponse.swift */,
 			);
 			path = Services;
@@ -438,6 +443,7 @@
 		8E692A2729129DB000F80CAE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				8E692A512914246800F80CAE /* PhotosCellViewModel.swift */,
 				8E692A2C2912EE5A00F80CAE /* DetailScreenViewModel.swift */,
 			);
 			path = ViewModels;
@@ -738,6 +744,7 @@
 				8E527352290B0A20004BE146 /* HomeScreenViewModel.swift in Sources */,
 				8E692A1429117B2C00F80CAE /* GetList.swift in Sources */,
 				8E692A2229129A5500F80CAE /* FetchObjectService.swift in Sources */,
+				8E692A522914246800F80CAE /* PhotosCellViewModel.swift in Sources */,
 				8E181961290FF68D006F5A9A /* PetCellView.swift in Sources */,
 				8E18195E290FF102006F5A9A /* Headers.swift in Sources */,
 				8E181955290FECAE006F5A9A /* SessionManager.swift in Sources */,
@@ -747,6 +754,7 @@
 				8E18194C290FCAB9006F5A9A /* AuthManager.swift in Sources */,
 				8E692A2D2912EE5A00F80CAE /* DetailScreenViewModel.swift in Sources */,
 				8E527312290B06E1004BE146 /* MainCoordinator.swift in Sources */,
+				8E692A542914267E00F80CAE /* MultipleImageDownloadService.swift in Sources */,
 				8E527328290B0877004BE146 /* Array+Extension.swift in Sources */,
 				8E181964290FF6A1006F5A9A /* PetCellViewModel.swift in Sources */,
 				8E181944290BEE59006F5A9A /* OAuthResponse.swift in Sources */,

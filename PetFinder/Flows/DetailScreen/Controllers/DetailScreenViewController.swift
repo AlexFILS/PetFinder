@@ -19,6 +19,10 @@ class DetailScreenViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        self.viewModel.coordinator.popController()
+    }
+    
     private func registerCells() {
         self.detailsTableView.register(
             UINib(

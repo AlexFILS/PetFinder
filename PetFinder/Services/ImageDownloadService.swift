@@ -8,10 +8,19 @@
 import Foundation
 import AlamofireImage
 
-class ImageDownloadService {
+protocol ImageDownloadServiceType {
+    var imageDownloader: ImageDownloader { get }
+}
+
+protocol SingleDownloadType {
+    var path: String { get }
+    func downloadImage(completion: @escaping (UIImage) -> Void)
+}
+
+class ImageDownloadService: ImageDownloadServiceType, SingleDownloadType {
     
     let path: String
-    private let imageDownloader = ImageDownloader(
+    lazy var imageDownloader = ImageDownloader(
         configuration: ImageDownloader.defaultURLSessionConfiguration(),
         downloadPrioritization: .fifo,
         maximumActiveDownloads: 1,
