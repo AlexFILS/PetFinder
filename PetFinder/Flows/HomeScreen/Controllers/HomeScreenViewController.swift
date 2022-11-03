@@ -24,7 +24,7 @@ class HomeScreenViewController: BaseViewController {
     private func initialSetup() {
         self.view.showBlurLoader()
         self.bindTableView()
-        self.petsTableView.rx.setDelegate(self).disposed(by: bag)
+        self.petsTableView.rx.setDelegate(self).disposed(by: self.bag)
         self.viewModel.initializeServices() { [unowned self] error in
             self.view.removeBlurLoader()
             if let error = error {

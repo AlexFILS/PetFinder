@@ -96,6 +96,10 @@
 		8E692A50291417FF00F80CAE /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A4F291417FF00F80CAE /* AlertBuilder.swift */; };
 		8E692A522914246800F80CAE /* PhotosCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A512914246800F80CAE /* PhotosCellViewModel.swift */; };
 		8E692A542914267E00F80CAE /* MultipleImageDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A532914267D00F80CAE /* MultipleImageDownloadService.swift */; };
+		8E692A5629142C8A00F80CAE /* PhotosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E692A5529142C8A00F80CAE /* PhotosCell.xib */; };
+		8E692A5829142DEC00F80CAE /* PhotosCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A5729142DEC00F80CAE /* PhotosCellView.swift */; };
+		8E692A5A29142F0800F80CAE /* PhotosCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E692A5929142F0800F80CAE /* PhotosCollectionCell.xib */; };
+		8E692A5C29142F5100F80CAE /* PhotosCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E692A5B29142F5100F80CAE /* PhotosCollectionCell.swift */; };
 		96F793F74762C5F1022D8668 /* Pods_PetFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B99C9579D022822B3BF7C362 /* Pods_PetFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +188,10 @@
 		8E692A4F291417FF00F80CAE /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
 		8E692A512914246800F80CAE /* PhotosCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCellViewModel.swift; sourceTree = "<group>"; };
 		8E692A532914267D00F80CAE /* MultipleImageDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImageDownloadService.swift; sourceTree = "<group>"; };
+		8E692A5529142C8A00F80CAE /* PhotosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosCell.xib; sourceTree = "<group>"; };
+		8E692A5729142DEC00F80CAE /* PhotosCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCellView.swift; sourceTree = "<group>"; };
+		8E692A5929142F0800F80CAE /* PhotosCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosCollectionCell.xib; sourceTree = "<group>"; };
+		8E692A5B29142F5100F80CAE /* PhotosCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionCell.swift; sourceTree = "<group>"; };
 		90D218F0F4F6E3537DCD540E /* Pods_PetFinderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		992F9A128B5D025470441464 /* Pods-PetFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFinder.debug.xcconfig"; path = "Target Support Files/Pods-PetFinder/Pods-PetFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		B99C9579D022822B3BF7C362 /* Pods_PetFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -471,6 +479,10 @@
 				8E692A4229140CE000F80CAE /* AddressCellView.swift */,
 				8E692A44291410FD00F80CAE /* ContactCell.xib */,
 				8E692A462914110900F80CAE /* ContactCellView.swift */,
+				8E692A5529142C8A00F80CAE /* PhotosCell.xib */,
+				8E692A5729142DEC00F80CAE /* PhotosCellView.swift */,
+				8E692A5929142F0800F80CAE /* PhotosCollectionCell.xib */,
+				8E692A5B29142F5100F80CAE /* PhotosCollectionCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -596,12 +608,14 @@
 			files = (
 				8E5272E4290B01D1004BE146 /* LaunchScreen.storyboard in Resources */,
 				8E692A392912FCF300F80CAE /* MainTraitsCell.xib in Resources */,
+				8E692A5A29142F0800F80CAE /* PhotosCollectionCell.xib in Resources */,
 				8E692A3D2914069E00F80CAE /* AppearanceCell.xib in Resources */,
 				8E692A45291410FD00F80CAE /* ContactCell.xib in Resources */,
 				8E5272E1290B01D1004BE146 /* Assets.xcassets in Resources */,
 				8E692A2929129DC200F80CAE /* DetailScreen.storyboard in Resources */,
 				8E5272DF290B01D0004BE146 /* HomeScreen.storyboard in Resources */,
 				8E692A4129140CD800F80CAE /* AddressCell.xib in Resources */,
+				8E692A5629142C8A00F80CAE /* PhotosCell.xib in Resources */,
 				8E692A1D29119F8000F80CAE /* PetCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -732,6 +746,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E5272D8290B01D0004BE146 /* AppDelegate.swift in Sources */,
+				8E692A5829142DEC00F80CAE /* PhotosCellView.swift in Sources */,
 				8E692A202911A41300F80CAE /* ImageDownloadService.swift in Sources */,
 				8E692A472914110900F80CAE /* ContactCellView.swift in Sources */,
 				8E181948290BF122006F5A9A /* OauthParameters.swift in Sources */,
@@ -765,6 +780,7 @@
 				8E692A3F291406D500F80CAE /* AppearanceCellView.swift in Sources */,
 				8E527325290B080D004BE146 /* BlurView.swift in Sources */,
 				8E527318290B0785004BE146 /* BaseViewController.swift in Sources */,
+				8E692A5C29142F5100F80CAE /* PhotosCollectionCell.swift in Sources */,
 				8E692A1A291181DD00F80CAE /* Environment.swift in Sources */,
 				8E692A102911759400F80CAE /* Breed.swift in Sources */,
 				8E692A49291414EE00F80CAE /* BaseResponse.swift in Sources */,

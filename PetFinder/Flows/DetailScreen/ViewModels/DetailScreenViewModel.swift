@@ -29,6 +29,7 @@ enum CellType {
     case addressCell(model: AddressCellModel)
     case apperanceCell(model: AppearanceTraitsCellModel)
     case contactCell(model: ContactCellModel)
+    case photosCell(model: PhotosCellViewModel)
 }
 
 class DetailScreenViewModel: DetailScreenViewModelType, TableViewSupportedViewModelType {
@@ -64,6 +65,7 @@ class DetailScreenViewModel: DetailScreenViewModelType, TableViewSupportedViewMo
         var sections = [Section]()
         sections.append(self.generateMainTraitsSection())
         sections.append(self.generateApperanceSection())
+        sections.append(self.generatePhotosSection())
         sections.append(self.generateAddressSection())
         sections.append(self.generateContactSection())
         self.sections = sections
@@ -95,5 +97,20 @@ class DetailScreenViewModel: DetailScreenViewModelType, TableViewSupportedViewMo
         let contact = ContactCellModel(from: self.animal.contact)
         cells.append(.contactCell(model: contact))
         return Section(sectionTtitle: DetailScreenSectionTitles.contact.rawValue, items: cells)
+    }
+    
+    private func generatePhotosSection() -> Section {
+        var cells = [CellType]()
+        let service = PhotosCellViewModel.Services(imagesDownloader: MultipleImageDownloadService(paths: self.getPhotosUrls()))
+        let photosModel = PhotosCellViewModel(services: service)
+        cells.append(.photosCell(model: photosModel))
+        return Section(sectionTtitle: DetailScreenSectionTitles.photos.rawValue, items: cells)
+    }
+    
+    private func getPhotosUrls() -> [String] {
+        let photos = self.animal.photos.reduce([]) {
+            $0 + $1.values
+        }
+        return photos
     }
 }

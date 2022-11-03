@@ -35,12 +35,15 @@ class PetCellView: UITableViewCell {
         guard let viewModel = self.viewModel else {
             return
         }
-        viewModel.avatarImage.subscribe(onNext: { [weak self] image in
-            DispatchQueue.main.async { [weak self] in
-                self?.cellAvatar.image = image
-                self?.setNeedsLayout()
-                self?.removeBlurLoader()
+        viewModel.avatarImage.subscribe(
+            onNext: { [weak self] image in
+                DispatchQueue.main.async { [weak self] in
+                    self?.cellAvatar.image = image
+                    self?.setNeedsLayout()
+                    self?.removeBlurLoader()
+                }
             }
-        }).disposed(by: self.disposeBag)
+        )
+        .disposed(by: self.disposeBag)
     }
 }

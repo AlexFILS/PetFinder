@@ -12,6 +12,7 @@ class AlertBuilder {
     private let viewController: UIViewController
     private var alertProperties = BaseAlert()
     private var alertActionSuccessProperties = AlertAction()
+    private var alertActionCustomProperties = AlertAction()
     private var onSuccess: ((UIAlertAction) -> Void)?
     private var onCustomAction: ((UIAlertAction) -> Void)?
     
@@ -41,7 +42,7 @@ class AlertBuilder {
     }
     
     public func onCustomAction(title: String, _ onCustomAction: @escaping ((UIAlertAction) -> Void)) -> AlertBuilder {
-        self.alertActionSuccessProperties.title = title
+        self.alertActionCustomProperties.title = title
         self.onCustomAction = onCustomAction
         return self
     }
@@ -53,7 +54,7 @@ class AlertBuilder {
             alert.addAction(.init(title: alertActionSuccessProperties.title, style: alertActionSuccessProperties.alertActionStyle, handler: onSuccess))
         }
         if let onCustomAction = onCustomAction {
-            alert.addAction(.init(title: alertActionSuccessProperties.title, style: alertActionSuccessProperties.alertActionStyle, handler: onCustomAction))
+            alert.addAction(.init(title: alertActionCustomProperties.title, style: alertActionCustomProperties.alertActionStyle, handler: onCustomAction))
         }
         viewController.present(alert, animated: true, completion: nil)
         return alert

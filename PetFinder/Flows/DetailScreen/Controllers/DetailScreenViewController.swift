@@ -15,6 +15,7 @@ class DetailScreenViewController: BaseViewController {
     
     override func viewDidLoad() {
         self.detailsTableView.dataSource = self
+        self.detailsTableView.delegate = self
         self.registerCells()
         super.viewDidLoad()
     }
@@ -26,8 +27,8 @@ class DetailScreenViewController: BaseViewController {
     private func registerCells() {
         self.detailsTableView.register(
             UINib(
-                nibName: "MainTraitsCell", bundle: nil),
-            forCellReuseIdentifier: "MainTraitsCell"
+                nibName: DetailScreenCellIdentifiers.mainTraitsCell.rawValue, bundle: nil),
+            forCellReuseIdentifier: DetailScreenCellIdentifiers.mainTraitsCell.rawValue
         )
         self.detailsTableView.register(
             UINib(
@@ -44,6 +45,11 @@ class DetailScreenViewController: BaseViewController {
                 nibName: DetailScreenCellIdentifiers.contactCell.rawValue, bundle: nil),
             forCellReuseIdentifier: DetailScreenCellIdentifiers.contactCell.rawValue
         )
+        self.detailsTableView.register(
+            UINib(
+                nibName: DetailScreenCellIdentifiers.photosCell.rawValue, bundle: nil),
+            forCellReuseIdentifier: DetailScreenCellIdentifiers.photosCell.rawValue
+        )
     }
 }
 
@@ -57,29 +63,36 @@ extension DetailScreenViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         switch item {
-        case .mainTraitsCell(let model):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTraitsCell") as? MainTraitsCellView else {
+        case .mainTraitsCell(let viewModel):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailScreenCellIdentifiers.mainTraitsCell.rawValue) as? MainTraitsCellView else {
                 return UITableViewCell()
             }
-            cell.configure(fromModel: model)
+            cell.configure(fromModel: viewModel)
             return cell
-        case .apperanceCell(let model):
+        case .apperanceCell(let viewModel):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailScreenCellIdentifiers.appearanceCell.rawValue) as? AppearanceCellView else {
                 return UITableViewCell()
             }
-            cell.configure(fromModel: model)
+            cell.configure(fromModel: viewModel)
             return cell
-        case .addressCell(let model):
+        case .addressCell(let viewModel):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailScreenCellIdentifiers.addressCell.rawValue) as? AddressCellView else {
                 return UITableViewCell()
             }
-            cell.configure(fromModel: model)
+            cell.configure(fromModel: viewModel)
             return cell
-        case .contactCell(let model):
+        case .contactCell(let viewModel):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailScreenCellIdentifiers.contactCell.rawValue) as? ContactCellView else {
                 return UITableViewCell()
             }
-            cell.configure(fromModel: model)
+            cell.configure(fromModel: viewModel)
+            return cell
+        case .photosCell(let viewModel):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailScreenCellIdentifiers.photosCell.rawValue) as? PhotosCellView else {
+                return UITableViewCell()
+            }
+            cell.viewModel = viewModel
+            cell.fetchImages()
             return cell
         }
     }
@@ -94,5 +107,17 @@ extension DetailScreenViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.viewModel.numberOfSections
+    }
+}
+
+extension DetailScreenViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch self.viewModel.modelForIndex(indexPath) {
+        case .photosCell:
+            return 90
+        default:
+            return UITableView.automaticDimension
+        }
     }
 }

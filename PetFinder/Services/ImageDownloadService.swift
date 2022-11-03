@@ -8,7 +8,7 @@
 import Foundation
 import AlamofireImage
 
-protocol ImageDownloadServiceType {
+protocol ImageDownloaderType {
     var imageDownloader: ImageDownloader { get }
 }
 
@@ -17,7 +17,11 @@ protocol SingleDownloadType {
     func downloadImage(completion: @escaping (UIImage) -> Void)
 }
 
-class ImageDownloadService: ImageDownloadServiceType, SingleDownloadType {
+protocol ImageDownloadServiceType: ImageDownloaderType, SingleDownloadType {
+    
+}
+
+class ImageDownloadService: ImageDownloadServiceType {
     
     let path: String
     lazy var imageDownloader = ImageDownloader(

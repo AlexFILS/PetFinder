@@ -27,6 +27,7 @@ enum DetailScreenSectionTitles: String {
     case apperance = "Apperance"
     case address = "Address"
     case contact = "Contact"
+    case photos = "Photos"
 }
 
 enum MainTraitsLabelTitles: String {
@@ -53,6 +54,7 @@ enum DetailScreenCellIdentifiers: String {
     case photosCell = "PhotosCell"
     case contactCell = "ContactCell"
     case addressCell = "AddressCell"
+    case photosCollectionCell = "PhotosCollectionCell"
 }
 
 enum HomeScreenCellIdentifier: String {

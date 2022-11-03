@@ -9,22 +9,23 @@ import Foundation
 import UIKit
 import AlamofireImage
 
-protocol MultipleImageDownloadServiceType: ImageDownloadServiceType, MultipleDownloadType {
+protocol MultipleImageDownloadServiceType: ImageDownloaderType, MultipleDownloadType {
     
 }
 
 protocol MultipleDownloadType {
-    func downloadImages() -> [UIImage]
+    func downloadImages(completon: @escaping ([UIImage]) -> Void)
 }
 
 class MultipleImageDownloadService: MultipleImageDownloadServiceType {
     
     let paths: [String]
+    private let dispatchGroup = DispatchGroup()
     
     lazy var imageDownloader = ImageDownloader(
         configuration: ImageDownloader.defaultURLSessionConfiguration(),
         downloadPrioritization: .fifo,
-        maximumActiveDownloads: 1,
+        maximumActiveDownloads: 5,
         imageCache: AutoPurgingImageCache()
     )
     
@@ -32,16 +33,23 @@ class MultipleImageDownloadService: MultipleImageDownloadServiceType {
         self.paths = paths
     }
     
-    func downloadImages() -> [UIImage] {
+    func downloadImages(completon: @escaping ([UIImage]) -> Void) {
         var images = [UIImage]()
-        self.paths.forEach { path in
+        for path in  self.paths {
+            self.dispatchGroup.enter()
             let urlRequest = URLRequest(url: URL(string: path)!)
-            self.imageDownloader.download(urlRequest, completion:  { response in
+            self.imageDownloader.download(urlRequest, completion:  { [weak self] response in
                 if case .success(let image) = response.result {
                     images.append(image)
+                    self?.dispatchGroup.leave()
+                } else {
+                    images.append(UIImage())
+                    self?.dispatchGroup.leave()
                 }
             })
         }
-        return images
+        self.dispatchGroup.notify(queue: .main) {
+            completon(images)
+        }
     }
 }
