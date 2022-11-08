@@ -22,11 +22,11 @@ class HomeScreenViewController: BaseViewController {
     }
     
     private func initialSetup() {
-        self.view.showBlurLoader()
+        self.showLoadingIndicator()
         self.bindTableView()
         self.petsTableView.rx.setDelegate(self).disposed(by: self.bag)
         self.viewModel.initializeServices() { [unowned self] error in
-            self.view.removeBlurLoader()
+            self.hideLoadingIndicator()
             if let error = error {
                 self.showAlert(forError: error)
             }
@@ -72,7 +72,7 @@ class HomeScreenViewController: BaseViewController {
         
         self.viewModel.getListItems().bind { [weak self] animals in
             if animals.count > 0 {
-                self?.view.removeBlurLoader()
+                self?.hideLoadingIndicator()
             }
         }
         .disposed(by: self.bag)
@@ -96,7 +96,7 @@ class HomeScreenViewController: BaseViewController {
         let message = error.description
         let refreshAction: (UIAlertAction) -> Void = { _ in
             AuthManager.shared.fetchAccessToken { [weak self] error in
-                self?.view.showBlurLoader()
+                self?.showLoadingIndicator()
                 self?.viewModel.refreshList()
             }
         }
@@ -110,7 +110,7 @@ class HomeScreenViewController: BaseViewController {
     }
     
     private func prefetchAnimals() {
-        self.view.showBlurLoader()
+        self.showLoadingIndicator()
         self.viewModel.refreshList()
     }
 }
